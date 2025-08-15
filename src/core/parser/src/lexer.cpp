@@ -1,29 +1,36 @@
 #include "parser/lexer.hpp"
 
-char Lexer::skipSpaces() {
-    char symbol;
-    while (source.get(symbol)) {
-        if (!std::isspace(static_cast<unsigned char>(symbol))) {
-            return symbol;
-        }
+void Lexer::skipSpaces() {
+    while (std::isspace(static_cast<unsigned char>(source.peek()))) {
+        source.get();
     }
-    return EOF;
+}
+
+bool Lexer::checkEOF() {
+    int symbol = source.peek();
+
+    if(symbol == EOF) {
+        return true;
+    }
+
+    return false;
 }
 
 Token Lexer::next() {
-    char symbol = skipSpaces();
-
-    if(symbol == EOF) return Token(TokenType::EndOfFile); // Return EOF
+    skipSpaces();
     
-    if(std::isdigit(symbol)) {
-        source.unget();
+    if(checkEOF()) return Token(TokenType::EndOfFile);
+    
+    char symbol = source.peek();
+    
+    if(std::isdigit(static_cast<unsigned char>(symbol))) {
         double value = 0.0;
-        if(!(source >> value)) return Token(TokenType::Error); // Return ERR
+        if(!(source >> value)) return Token(TokenType::Error);
 
-        return Token(value); // Return LITERAL
+        return Token(value);
     } 
 
-    symbol = skipSpaces();
+    source.get();
     
     switch (symbol) {
         case '+': return Token(TokenType::Addition);
@@ -35,5 +42,5 @@ Token Lexer::next() {
     }
 
 
-    return Token(TokenType::Error); // Return ERR
+    return Token(TokenType::Error);
 }

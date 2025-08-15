@@ -7,7 +7,9 @@ public:
 
     Token next();
 
-    char skipSpaces();
+    void skipSpaces();
+
+    bool checkEOF();
 private:
     std::istream source;
 };
