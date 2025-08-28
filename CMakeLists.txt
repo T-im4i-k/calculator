@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
 
-project(calculator
+project(qualqulator
         DESCRIPTION "The project implements a simple calculator, that supports basic operations"
         LANGUAGES CXX)
 

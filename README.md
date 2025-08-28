@@ -26,7 +26,7 @@ cmake --preset=clang-debug-build
 cmake --build --preset=clang-debug-build
 
 # Run application
-./build/clang-debug-build/src/calculator
+./build/clang-debug-build/src/qualqulator
 
 # Run tests
 ctest --preset=clang-test
@@ -39,7 +39,7 @@ cmake --preset=clang-release-build
 cmake --build --preset=clang-release-build
 
 # Run application
-./build/clang-release-build/src/calculator
+./build/clang-release-build/src/qualqulator
 ```
 
 # Important

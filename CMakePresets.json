@@ -28,7 +28,7 @@
             "description": "Release build with default config",
             "configurePreset": "default-release-config",
             "targets": [
-                "calculator"
+                "qualqulator"
             ],
             "cleanFirst": true,
             "verbose": false,
