@@ -10,10 +10,10 @@ The combination of a **modular UI** and robust parsing highlights both usability
 
 ## Dependencies
 
-- **C++ compiler:** Clang++ 18.1.3  
-- **Qt:** 6.9  
-- **CMake:** 3.28  
-- **Ninja:** 1.11.1
+- **clang++** 18.1
+- **Qt** 6.9  
+- **CMake** 3.28  
+- **Ninja** 1.11
 
 ## Build & Run
 
