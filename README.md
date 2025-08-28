@@ -10,27 +10,38 @@ The combination of a **modular UI** and robust parsing highlights both usability
 
 ## Dependencies
 
-- C++20
-- Clang++
-- Qt 6.9
-- CMake
-- Ninja
+- **C++ compiler:** Clang++ 18.1.3  
+- **Qt:** 6.9  
+- **CMake:** 3.28  
+- **Ninja:** 1.11.1
 
 ## Build & Run
 
+### Debug Build + Testing
+Build the project in Debug mode (includes extra logging and assertions) and run tests:
+
 ```sh
+# Build Debug
 cmake --preset=clang-debug-build
 cmake --build --preset=clang-debug-build
 
+# Run application
 ./build/clang-debug-build/src/calculator
+
+# Run tests
+ctest --preset=clang-test
+```
+
+### Release Build
+```sh
+# Build Release
+cmake --preset=clang-release-build
+cmake --build --preset=clang-release-build
+
+# Run application
+./build/clang-release-build/src/calculator
 ```
 
 # Important
 
 Before building the project, create your own CMakeUserPresets.json from CMakeUserPresets.template.json and update the CMAKE_PREFIX_PATH variable to point to your actual Qt CMake path.
-
-# Testing
-
-``` sh
-ctest --preset=clang-test
-```
